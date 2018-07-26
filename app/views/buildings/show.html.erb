@@ -1,0 +1,19 @@
+<h1><%= @building.name %></h1>
+<ul>
+  <li>Address: <%= @building.address %>, <%= @building.country %></li>
+  <li>Rent Per Floor: <%= @building.rent_per_floor %></li>
+  <li>Total Floors: <%= @building.number_of_floors %></li>
+  <li>Available Floors: <%= @building.available_floors %></li>
+</ul>
+
+<h2>Company Directory</h2>
+<ul>
+    <% @companies.each do |company| %>
+      <li><%= link_to company.name, company_path(company) %></li>
+    <% end %>
+</ul>
+
+<h2>Total Rent Revenue</h2>
+<ul>
+  <li>$<%= (@building.number_of_floors - @building.available_floors.count) * @building.rent_per_floor %> per month</li>
+</ul>
